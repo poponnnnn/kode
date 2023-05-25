@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int n;
+  char ulangi = 'y';
+  float LDL, HDL, trigliserida;
+  cout << "Masukan Jumlah Pasien : ";
+  cin >> n;
+  string nama[n];
+  float kolesterol[n];
+  cout << endl;
+  cout << "===SELEMAT DATANG DI PROGRAM PERHITUNGAN KADAR KOLESTEROL===" << endl;
+  do {
+  for (int i = 0; i < n; i++)
+  {
+    cout << i + 1 << endl;
+    cout << "Silakan Masukan Nama Anda : ";
+    cin >> nama[i];
+    cout << "Silakan Masukan Jumlah LDL : ";
+    cin >> LDL;
+    cout << "Silakan Masukan Jumlah HDL : ";
+    cin >> HDL;
+    cout << "Silakan Masukan Jumlah Trigliserida : ";
+    cin >> trigliserida;
+    kolesterol[i] = LDL + HDL + (0.2 * trigliserida);
+  }
+  cout << "\n===HASIL DARI PERHITUNGAN KADAR KOLESTEROL===" << endl;
+  for (int i = 0; i < n; i++)
+  {
+
+    cout << i + 1 << ". " << nama[i] << endl;
+    if (kolesterol[i] > 200)
+    {
+      cout << "kadar kolesterol : " << kolesterol[i] << " [TINGGI]" << endl;
+    }
+    else
+    {
+      cout << "kadar kolesterol : " << kolesterol[i] << " [NORMAL]" << endl;
+    }
+    cout<<"Apakah Kamu ingin mengulang program? (y/t) : ";
+      cin>>ulangi;
+  }
+  }while (ulangi == 'y');
+  return 0;
+}
